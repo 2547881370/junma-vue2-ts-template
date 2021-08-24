@@ -12,6 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    // 定义一个变量就必须给它一个初始值
+    "strictPropertyInitialization" : false,
     "types": [
       "webpack-env"
     ],
