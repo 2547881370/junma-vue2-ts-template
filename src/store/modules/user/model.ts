@@ -20,16 +20,3 @@ export class StateModel {
 }
 
 export type PartialStateModel = Partial<StateModel>
-
-export class MutationModel {
-
-    [MutationType.UPDATE_USER_INFO]: (state: PartialStateModel, data: string) => void;
-
-    [MutationType.UPDATE_MENU_LIST]: (state: PartialStateModel, data: IMenuList[]) => void;
-
-    [MutationType.SET_STAFF_MENU_LIST]: (state: PartialStateModel, data: IStaffMenuList[]) => void;
-}
-
-export class ActionsModel {
-    [ActionsType.CLEAR_PREV_USER]: (options: Commit) => void;
-}
