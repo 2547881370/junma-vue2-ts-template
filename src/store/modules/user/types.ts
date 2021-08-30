@@ -1,15 +1,3 @@
-export interface IUserInfo {
-    name? : string
-}
-
-export interface IMenuList {
-
-}
-
-export interface IStaffMenuList {
-
-}
-
 export enum MutationType {
 
     // 更新人员信息
@@ -32,7 +20,7 @@ export enum MutationType {
 export enum ActionsType {
 
     // 清除登录信息
-	CLEAR_USER_INFO,
+	CLEAR_USER_INFO = 'CLEAR_USER_INFO',
 
-	CLEAR_PREV_USER,
+	CLEAR_PREV_USER ='CLEAR_PREV_USER',
 }

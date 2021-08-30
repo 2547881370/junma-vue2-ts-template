@@ -1,39 +1,31 @@
-import { MutationTree, ActionTree, GetterTree } from "vuex";
-import { StateModel } from "./model";
-import { ActionsType, IMenuList, IStaffMenuList, IUserInfo, MutationType } from "./types";
+import { Module, VuexModule, Mutation, Action, getModule, } from 'vuex-module-decorators';
 
-const state = (): StateModel => ({
-    userInfo: {},
-    token: undefined,
-    menuList: [],
-    staffMenuList: [],
-    prevUser: undefined,
+import store from '@/store';
+import { ActionsType, MutationType } from './types';
+import { UserEntity } from './definitions';
+
+
+@Module({
+    name: 'user', dynamic: true, namespaced: true, store,
 })
+export default class UserStore extends VuexModule {
+    //state
+    public loginInfo: UserEntity = {};
 
-const getters : GetterTree<StateModel,any> = {
-    userName: (state) => state.userInfo.name,
-}
+    // getters
+    get userName() {
+        return this.loginInfo.name;
+    }
 
-
-const mutations: MutationTree<StateModel> = {
-    [MutationType.UPDATE_USER_INFO]: (state, userInfo: IUserInfo) => {
-        throw new Error("Function not implemented.");
-    },
-
-    [MutationType.UPDATE_MENU_LIST]: function (state, data: IMenuList[]): void {
-        throw new Error("Function not implemented.");
-    },
-
-    [MutationType.SET_STAFF_MENU_LIST]: function (state, data: IStaffMenuList[]): void {
-        throw new Error("Function not implemented.");
-    },
-}
-
-
-const actions: ActionTree<StateModel, any> = {
-    [ActionsType.CLEAR_PREV_USER]: function (content, payload): void {
-        throw new Error("Function not implemented.");
+    @Mutation
+    [MutationType.UPDATE_USER_INFO](user: UserEntity): void {
+        this.loginInfo = user;
+    }
+    
+    @Action({ commit: MutationType.UPDATE_USER_INFO })
+    [ActionsType.CLEAR_PREV_USER](user: UserEntity): UserEntity {
+        return { name: '张三' }
     }
 }
 
-export default { state, mutations, actions }
+export const UserStoreModule = getModule(UserStore);
