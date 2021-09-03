@@ -4,7 +4,6 @@ import store from '@/store';
 import { ActionsType, MutationType } from './types';
 import { UserEntity } from './definitions';
 
-
 @Module({
     name: 'user', dynamic: true, namespaced: true, store,
 })
