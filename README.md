@@ -10,6 +10,8 @@
         + https://class-component.vuejs.org/guide/additional-hooks.html
         + https://www.npmjs.com/package/vuex-module-decorators
 
+        + https://github.com/maskletter/tenp-tsxvue/tree/master/element-ui
+        + https://www.cnblogs.com/vaynewang/p/10794128.html
 + 目录结构搭建
     + assets
     + common
