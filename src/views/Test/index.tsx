@@ -65,12 +65,22 @@ export default class Home extends BaseVue {
   protected render() {
     return (
       <div class="home">
+        <el-alert title="使用组件" type="success" effect="dark"> </el-alert>
         <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+        <TimePicker v-model={this.timeData} type="date"> </TimePicker>
+
+
         <el-alert title="切换语言" type="success" effect="dark"> </el-alert>
         <el-button type="primary" onClick={() => this.setLanguage('zh-CN')}>切换中文</el-button>
         <el-button type="primary" onClick={() => this.setLanguage('en-US')}>切换英文</el-button>
         <span>{this.translate("tips.network401")}</span>
-        <TimePicker v-model={this.timeData} type="date"> </TimePicker>
+
+
+        <el-alert title="使用icon" type="success" effect="dark"> </el-alert>
+        <div style={{width: "30px", height: "30px"}}>
+          <svg-icon iconClass="wifi" style={{color:"#4088d0",fontSize : "300px"}}></svg-icon>
+          <svg-icon iconClass="el-icon-delete"></svg-icon>
+        </div>
       </div>
     )
   }
