@@ -6,7 +6,8 @@ import {
   NotificationPosition,
 } from "element-ui/types/notification";
 import Vue from "vue";
-import { ValueTypes } from "@/i18n/types";
+import { I18nValueTypes } from "@/i18n/types";
+import Utils from "./utils/utils";
 
 export default class BaseVue extends Vue {
   /**
@@ -16,11 +17,8 @@ export default class BaseVue extends Vue {
    * label.xxxx
    */
   get translate() {
-    return (key: ValueTypes, param?: {}): string => {
-      if (this.$i18n.te(key)) {
-        return this.$i18n.t(key, param) as string;
-      }
-      return key;
+    return (key: I18nValueTypes, param?: {}): string => {
+      return Utils.translate(key , param);
     };
   }
 

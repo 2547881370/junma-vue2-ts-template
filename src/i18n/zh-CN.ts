@@ -1,6 +1,6 @@
-import { dataType } from "./types";
+import { I18ndataType } from "./types";
 
-export const data : dataType = {
+export const data : I18ndataType = {
     tips: {
         network404: '访问地址不存在\uff01',
         network401: '抱歉\uff0c您无此操作权限\uff01',

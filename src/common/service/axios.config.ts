@@ -5,6 +5,7 @@ import { MessageType } from "element-ui/types/message";
 import config from "../../config/index";
 import { ResponseStatusEnum } from "../enum/common.enum";
 import LocalStorageUtil from "../utils/local-storage-util";
+import Utils from "../utils/utils";
 import { PendingEntity } from "./definitions";
 
 /*配置接收方式application/json;charset=UTF-8 或 application/x-www-form-urlencoded;charset=UTF-8*/
@@ -68,9 +69,9 @@ axios.interceptors.response.use(
         let messageText = '';
         let messageType: MessageType = 'error';
         if (!error.response) {//网络错误
-            messageText = i18n.t('tips.networkError') as string;
+            messageText = Utils.translate('tips.networkError') as string;
         } else if (!error.response.data) {//服务器没有响应
-            messageText = i18n.t('tips.noResponse') as string;
+            messageText = Utils.translate('tips.noResponse') as string;
         } else {
             messageText = error.response.data.message || error.response.data;
         }
@@ -85,15 +86,15 @@ axios.interceptors.response.use(
 function conductRes(status: ResponseStatusEnum, messageType: MessageType, messageText: string, res: AxiosResponse) {
     switch (status) {
         case ResponseStatusEnum.notFound:
-            messageText = i18n.t('tips.network404') as string;
+            messageText = Utils.translate("tips.network401") as string;
             break;
         // 无权限401
         case ResponseStatusEnum.noAuth:
-            messageText = i18n.t('tips.network401') as string;
+            messageText = Utils.translate('tips.network401') as string;
             break;
         // 登录过期403
         case ResponseStatusEnum.authTimeout:
-            messageText = i18n.t('tips.network403') as string;
+            messageText = Utils.translate('tips.network403') as string;
             // Utils.clearLoginInfo();
             // 延迟跳转，便于用户阅读弹窗信息
             // setTimeout(() => {

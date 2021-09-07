@@ -1,7 +1,7 @@
-import { dataType } from "./types";
+import { I18ndataType } from "./types";
 
 // 定义数据
-export const data : dataType = {
+export const data : I18ndataType = {
     tips: {
         network404: 'Access address does not exist\uff01',
         network401: 'Sorry you don t have this operation permission\uff01',

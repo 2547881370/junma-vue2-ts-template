@@ -1,4 +1,6 @@
+import { I18nValueTypes } from "@/i18n/types"
 import _ from "lodash"
+import i18n from "@/i18n";
 
 type DateFormatKeyType = "y+" | "M+" | "d+" | "H+" | "m+" | "s+"
 type DateFormatType = {
@@ -78,5 +80,13 @@ export default class Utils {
         }
         return format;
     }
+
+    // 国际化
+    public static translate(key: I18nValueTypes, param?: {}): string {
+        if (i18n.te(key)) {
+            return i18n.t(key, param) as string;
+        }
+        return key;
+    };
 }
 

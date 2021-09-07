@@ -8,7 +8,7 @@ type ExpandDataType<T> = T[keyof T]
 export type ValueType<T> = ExpandDataType<ConvertDataFormatStringTemplteType<T>>
 
 // 导出数据类型
-export type dataType = {
+export type I18ndataType = {
     tips: {
         network404: string;
         network401: string;
@@ -17,4 +17,4 @@ export type dataType = {
         noResponse: string;
     }
 }
-export type ValueTypes =  ValueType<dataType>
+export type I18nValueTypes =  ValueType<I18ndataType>
