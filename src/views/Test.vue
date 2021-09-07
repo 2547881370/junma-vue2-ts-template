@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, Ref, Vue, Watch } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from "@/components/HelloWorld/HelloWorld";
 import { UserStoreModule } from "@/store/modules/user";
 import { UserEntity } from "@/store/modules/user/definitions";
 import BaseVue from "@/common/base-vue.vue";
