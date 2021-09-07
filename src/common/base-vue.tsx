@@ -1,4 +1,3 @@
-<script lang="ts">
 import { ElLoadingComponent } from "element-ui/types/loading";
 import { Loading, Message, MessageBox, Notification } from "element-ui";
 import { ElMessageComponent } from "element-ui/types/message";
@@ -7,6 +6,7 @@ import {
   NotificationPosition,
 } from "element-ui/types/notification";
 import Vue from "vue";
+import { ValueTypes } from "@/i18n/types";
 
 export default class BaseVue extends Vue {
   /**
@@ -16,7 +16,7 @@ export default class BaseVue extends Vue {
    * label.xxxx
    */
   get translate() {
-    return (key: string, param?: {}): string => {
+    return (key: ValueTypes, param?: {}): string => {
       if (this.$i18n.te(key)) {
         return this.$i18n.t(key, param) as string;
       }
@@ -25,4 +25,3 @@ export default class BaseVue extends Vue {
   }
 
 }
-</script>

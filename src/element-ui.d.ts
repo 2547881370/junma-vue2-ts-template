@@ -2,7 +2,6 @@
 * 对应
 * "element-ui": "^2.9.2"
 */
-
 import Vue, { VNode } from 'vue'
 import 'element-ui'
 import 'Vue'

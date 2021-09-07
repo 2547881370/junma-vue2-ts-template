@@ -1,4 +1,7 @@
-export default {
+import { dataType } from "./types";
+
+// 定义数据
+export const data : dataType = {
     tips: {
         network404: 'Access address does not exist\uff01',
         network401: 'Sorry you don t have this operation permission\uff01',

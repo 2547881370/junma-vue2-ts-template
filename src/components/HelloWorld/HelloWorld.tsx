@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import * as tsx from "vue-tsx-support";
-import TestButton from "../button"
+import TestButton from "./button"
 import { Button, Select, Option } from 'element-ui';
 
 @Component({

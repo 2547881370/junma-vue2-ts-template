@@ -1,22 +1,11 @@
-<template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-    <el-alert title="切换语言" type="success" effect="dark"> </el-alert>
-    <el-button type="primary" @click="setLanguage('zh-CN')">切换中文</el-button>
-    <el-button type="primary" @click="setLanguage('en-US')">切换英文</el-button>
-    <span>{{ translate("tips.network404") }}</span>
-    <el-date-picker v-model="timeData" type="date"> </el-date-picker>
-  </div>
-</template>
-
-<script lang="ts">
 import { Component, Prop, Ref, Vue, Watch } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld/HelloWorld";
 import { UserStoreModule } from "@/store/modules/user";
 import { UserEntity } from "@/store/modules/user/definitions";
-import BaseVue from "@/common/base-vue.vue";
+import BaseVue from "@/common/base-vue";
 import { I18nType } from "@/store/modules/settings/types";
 import { SettingsStoreModule } from "@/store/modules/settings";
+import { TimePicker } from 'element-ui';
 @Component({
   components: {
     HelloWorld,
@@ -30,6 +19,7 @@ import { SettingsStoreModule } from "@/store/modules/settings";
     next();
   },
 })
+// export default class Home extends BaseVue {
 export default class Home extends BaseVue {
   // 如果数据不在data函数中返回, 直接定义, 初始值是undefined,那么这个数据将不会跟踪响应, 即不是响应式数据
 
@@ -54,7 +44,7 @@ export default class Home extends BaseVue {
 
   // watch
   @Watch("person", { immediate: true, deep: true })
-  onPersonChanged1(val: UserEntity, oldVal: UserEntity) {}
+  onPersonChanged1(val: UserEntity, oldVal: UserEntity) { }
 
   // ref
   @Ref("helloWorldRef") readonly helloWorldRef!: HelloWorld;
@@ -66,10 +56,22 @@ export default class Home extends BaseVue {
     UserStoreModule.CLEAR_PREV_USER({}); // actions
   }
 
-  mounted() {}
+  mounted() { }
 
   public setLanguage(language: I18nType) {
     SettingsStoreModule.UPDATE_USER_INFO(language);
   }
+
+  protected render() {
+    return (
+      <div class="home">
+        <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+        <el-alert title="切换语言" type="success" effect="dark"> </el-alert>
+        <el-button type="primary" onClick={() => this.setLanguage('zh-CN')}>切换中文</el-button>
+        <el-button type="primary" onClick={() => this.setLanguage('en-US')}>切换英文</el-button>
+        <span>{this.translate("tips.network401")}</span>
+        <TimePicker v-model={this.timeData} type="date"> </TimePicker>
+      </div>
+    )
+  }
 }
-</script>
