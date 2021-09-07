@@ -1,7 +1,7 @@
 import { ElButton } from "element-ui/types/button";
 import { Component, Prop } from "vue-property-decorator";
 import * as tsx from "vue-tsx-support";
-import css from "./button.less"
+import css from "./button.module.less"
 
 export enum ButtonType {
   default = "default",
