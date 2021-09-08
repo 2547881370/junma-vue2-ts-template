@@ -29,6 +29,12 @@
                 + types.ts
         + index.ts
     + components
+        + 业务组件
+    + vab
+        + 功能组件
+            + styles
+            + components
+            + plugins
     + view
         + login
             + styles
