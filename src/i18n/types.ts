@@ -15,6 +15,10 @@ export type I18ndataType = {
         network403: string;
         networkError: string;
         noResponse: string;
+        errPageOops : string;
+        errPageHeadline : string;
+        errPageiInfo : string;
+        back : string;
     }
 }
 export type I18nValueTypes =  ValueType<I18ndataType>

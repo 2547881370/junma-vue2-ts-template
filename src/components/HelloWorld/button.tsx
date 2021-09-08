@@ -1,6 +1,5 @@
-import { ElButton } from "element-ui/types/button";
+import BaseVue from "@/common/base-vue";
 import { Component, Prop } from "vue-property-decorator";
-import * as tsx from "vue-tsx-support";
 import css from "./button.module.less"
 
 export enum ButtonType {
@@ -19,7 +18,7 @@ export interface IButtonProps {
 }
 
 @Component
-export default class Button extends tsx.Component<IButtonProps> {
+export default class Button extends BaseVue<IButtonProps> {
   @Prop() public type!: ButtonType;
   @Prop() public size!: ButtonSize;
   @Prop({ default: 0 }) public num!: number;

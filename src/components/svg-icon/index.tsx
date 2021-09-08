@@ -1,6 +1,6 @@
+import BaseVue from "@/common/base-vue";
 import { Validate } from "@/common/utils/validate";
 import { Component, Prop } from "vue-property-decorator";
-import * as tsx from "vue-tsx-support";
 import css from "./style.module.less"
 
 export interface ISvgIconProps {
@@ -9,7 +9,7 @@ export interface ISvgIconProps {
 }
 
 @Component
-export default class SvgIcon extends tsx.Component<ISvgIconProps>{
+export default class SvgIcon extends BaseVue<ISvgIconProps>{
     @Prop() iconClass!: string;
     @Prop() className!: string | null;
 

@@ -1,14 +1,14 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
-import * as tsx from "vue-tsx-support";
 import TestButton from "./button"
 import { Button, Select, Option } from 'element-ui';
+import BaseVue from "@/common/base-vue";
 
 @Component({
   components: {
     TestButton
   }
 })
-export default class HelloWorld extends tsx.Component<{msg : string}> {
+export default class HelloWorld extends BaseVue<{msg : string}> {
   @Prop() private msg!: string;
 
   private value: string | null = null;
