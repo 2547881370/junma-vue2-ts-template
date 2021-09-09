@@ -1,6 +1,7 @@
 import { I18nValueTypes } from "@/i18n/types"
 import _ from "lodash"
 import i18n from "@/i18n";
+import { Route } from 'vue-router/types/router';
 
 type DateFormatKeyType = "y+" | "M+" | "d+" | "H+" | "m+" | "s+"
 type DateFormatType = {
@@ -88,5 +89,55 @@ export default class Utils {
         }
         return key;
     };
+
+
+    /**
+     * 根据当前route获取激活菜单
+     * @param route 当前路由
+     * @param isTabsBar 是否是标签
+     * @returns {string|*}
+     */
+    public static handleActivePath(route: Route, isTabsBar = false) {
+        const { meta, path, fullPath } = route;
+        const rawPath = route.matched ? route.matched[route.matched.length - 1].path : path;
+        if (isTabsBar) {
+            return meta!.dynamicNewTab ? fullPath : rawPath;
+        }
+        if (meta!.activeMenu) {
+            return meta!.activeMenu;
+        }
+        return fullPath ? fullPath : rawPath
+    }
+
+
+    /**
+     * @summary 遍历tree,查找指定id的数据对象
+     * @param id
+     * @param data
+     * @param idName
+     * @param childName
+     * @return {Object}
+     */
+    public static getTreeOneData<T extends { [key: string]: any }>(id: string, data: T[], idName: string = 'id', childName: string = 'children'): T | null {
+        let hasFound = false, // 表示是否有找到id值
+            result = null
+        let fn = function (data: T[]) {
+            if (Array.isArray(data) && !hasFound) {
+                // 判断是否是数组并且没有的情况下，
+                data.forEach(item => {
+                    if (item[idName] === id) {
+                        // 数据循环每个子项，并且判断子项下边是否有id值
+                        result = item // 返回的结果等于每一项
+                        hasFound = true // 并且找到id值
+                    } else if (item[childName]) {
+                        fn(item[childName]) // 递归调用下边的子项
+                    }
+                })
+            }
+        }
+        fn(data) // 调用一下
+        return result
+    }
+
 }
 

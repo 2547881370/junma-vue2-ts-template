@@ -54,6 +54,7 @@ export default class Home extends BaseVue {
     console.log(UserStoreModule.userName); // getter
     UserStoreModule.UPDATE_USER_INFO({}); // Mutation
     UserStoreModule.CLEAR_PREV_USER({}); // actions
+    console.log(this.helloWorldRef)
   }
 
   mounted() { }
@@ -81,6 +82,7 @@ export default class Home extends BaseVue {
           <svg-icon iconClass="wifi" style={{color:"#4088d0",fontSize : "300px"}}></svg-icon>
           <svg-icon iconClass="el-icon-delete"></svg-icon>
         </div>
+
       </div>
     )
   }

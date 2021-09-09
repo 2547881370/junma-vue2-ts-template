@@ -2,7 +2,7 @@ import BaseVue from "@/common/base-vue";
 import Utils from "@/common/utils/utils";
 import { VNode } from "vue";
 import { Component, Prop, Ref, Vue, Watch } from "vue-property-decorator";
-import "../styles/index.module.less"
+import css from "../styles/index.module.less"
 export interface ErrorComponentProps {
     jumpTime?: number;
     oops?: string;
@@ -27,7 +27,7 @@ export default class ErrorComponent extends BaseVue<ErrorComponentProps, {}, Err
 
     protected render() {
         return (
-            <div class='error-container'>
+            <div class={css['error-container']}>
                 <div class='error-content'>
                     <el-row gutter={20}>
                         <el-col lg={12} md={12} sm={12} xl={12} xs={12}>

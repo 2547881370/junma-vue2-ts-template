@@ -2,9 +2,9 @@ import BaseVue from "@/common/base-vue";
 import css from "./styles/style.module.less"
 
 import { Component, Prop, Ref, Vue, Watch } from "vue-property-decorator";
-import sidebar from "./component/sidebar"
-import Nav from "./component/nav"
-import Tabs from "./component/tabs"
+import sidebar from "./components/sidebar"
+import Nav from "./components/nav"
+import Tabs from "./components/tabs"
 @Component({
     components: {
         sidebar,

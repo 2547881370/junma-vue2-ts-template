@@ -33,12 +33,12 @@
             box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
         }
 
-        .scroll-wrapper {
+        :global .scroll-wrapper {
           width: 100%;
           height: 100%;
           overflow: hidden;
 
-          /deep/ .el-scrollbar__wrap {
+          .el-scrollbar__wrap {
             &::-webkit-scrollbar {
               display: none; /* Chrome Safari */
             }

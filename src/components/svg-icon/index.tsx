@@ -1,8 +1,6 @@
 import BaseVue from "@/common/base-vue";
-import { Validate } from "@/common/utils/validate";
 import { Component, Prop } from "vue-property-decorator";
 import css from "./style.module.less"
-
 export interface ISvgIconProps {
     iconClass: string,
     className?: string | null,
@@ -39,11 +37,18 @@ export default class SvgIcon extends BaseVue<ISvgIconProps>{
 
     protected render() {
         return (
-            <div>
-                <i v-if={this.isElementIcon} class={[this.iconClass, this.className]} v-on={this.$listeners}></i>
-                <svg v-else class={this.svgClass} aria-hidden="true" v-on={this.$listeners}>
-                    <use xlinkHref={this.iconName} ></use>
-                </svg>
+            <div class={css["icon-container"]}>
+                {
+                    !this.isElementIcon ?
+
+                      <svg  class={this.svgClass} aria-hidden="true" v-on={this.$listeners}>
+                          <use xlinkHref={this.iconName} ></use>
+                      </svg>
+
+                      :
+
+                      <i  class={[this.iconClass, this.className]} v-on={this.$listeners}></i>
+                }
             </div>
         );
     }
