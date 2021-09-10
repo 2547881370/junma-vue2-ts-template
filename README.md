@@ -57,5 +57,9 @@
     + 断点续传
     + 多文件
         + 队列上传
+    + 技术调研
+        + 考虑到通用性,不用第三方请求库,使用原生 XMLHttpRequest
+        + https://juejin.cn/post/6844904046436843527#heading-6
+        + https://blog.csdn.net/xgangzai/article/details/108544040
 
 
